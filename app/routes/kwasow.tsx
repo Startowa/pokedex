@@ -1,4 +1,4 @@
-import { Box, Card, Container, Dialog, Grid2, Modal, Typography } from "@mui/material";
+import { Box, Card, Container, Dialog, Grid2, Typography } from "@mui/material";
 import type { Route } from "./+types/home";
 import { pokedex, type Pokemon } from '../data/pokedex'
 import { useState } from "react";
