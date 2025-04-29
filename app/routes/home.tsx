@@ -2,11 +2,18 @@ import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Pokedex - index" },
+    { name: "description", content: "Witamy w naszym Pokedexie!" },
   ];
 }
 
 export default function Home() {
-  return <p>To jest strona domowa</p>;
+  return <div>
+    <h1>Linki do Pokedex'ów:</h1>
+    <ul>
+      <li>
+        <a href="/kwasow">Kwasow</a>
+      </li>
+    </ul>
+  </div>;
 }
