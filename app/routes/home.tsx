@@ -14,6 +14,9 @@ export default function Home() {
       <li>
         <a href="/kwasow">Kwasow</a>
       </li>
+      <li>
+        <a href="/mordulex">Mordulex</a>
+      </li>
     </ul>
   </div>;
 }
