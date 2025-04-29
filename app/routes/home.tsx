@@ -8,5 +8,12 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <p>To jest strona domowa</p>;
+  return <div>
+    <h1>Linki do Pokedex'ów:</h1>
+    <ul>
+      <li>
+        <a href="/kwasow">Kwasow</a>
+      </li>
+    </ul>
+  </div>;
 }
