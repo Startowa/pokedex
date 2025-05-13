@@ -1,7 +1,7 @@
 import { Box, Card, Container, Dialog, Grid2, Typography } from "@mui/material";
 import type { Route } from "./+types/home";
-import { pokedex, type Pokemon } from '../data/pokedex'
-import { useState } from "react";
+import { type Pokemon } from '../data/pokedex'
+import { useEffect, useState } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -74,6 +74,13 @@ function PokemonDetails(props: PokemonDetailsProps) {
 
 export default function Home() {
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null)
+  const [pokedex, setPokedex] = useState([])
+
+  useEffect(() => {
+    fetch("https://kwasow.pl/static/pokemony.json", { mode: 'no-cors' })
+      .then(res => res.text())
+      .then(pokemony => console.log(pokemony))  
+  }, [])
 
   return <>
     <PokemonDetailsDialog pokemon={pokemonDetails} onClose={() => setPokemonDetails(null)} />
