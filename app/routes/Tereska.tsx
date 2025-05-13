@@ -1,6 +1,4 @@
-import { pokedex } from "~/data/pokedex";
 import type { Route } from "./+types/home";
-import Paper from '@mui/material/Paper'
 import {Box, Card, Dialog, Grid2 } from "@mui/material";
 import { useState } from "react";
 
@@ -11,7 +9,13 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 export default function Home() {
-  const nazwa_pokemona = pokedex[0].name
+  const [pokedex, setPokedex] = useState ([])
+  if (pokedex.length==0){
+    fetch("https://kwasow.pl/static/pokemony.json", {mode: "no-cors"})
+    .then (res => res.json())
+    .then (pokemony => setPokedex (pokemony))
+  }
+  
   return <Grid2 container>
     {
     pokedex.map((pokemon, index) => {
