@@ -76,11 +76,11 @@ export default function Home() {
   const [pokemonDetails, setPokemonDetails] = useState<Pokemon | null>(null)
   const [pokedex, setPokedex] = useState([])
 
-  useEffect(() => {
-    fetch("https://kwasow.pl/static/pokemony.json", { mode: 'no-cors' })
-      .then(res => res.text())
-      .then(pokemony => console.log(pokemony))  
-  }, [])
+  if (pokedex.length == 0) {
+    fetch("https://kwasow.pl/static/cors/pokemony.json")
+      .then(res => res.json())
+      .then(pokemony => setPokedex(pokemony))
+  }
 
   return <>
     <PokemonDetailsDialog pokemon={pokemonDetails} onClose={() => setPokemonDetails(null)} />
